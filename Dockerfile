@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y\
 
 WORKDIR / workspace
 
-RUN git clone https://github.com/AdrianMTZVazquez/RCDD_2026.git
+RUN git clone https://github.com/Ejazly/SDAct2026.git
 
 CMD ["sleep", "infinity"]
 
