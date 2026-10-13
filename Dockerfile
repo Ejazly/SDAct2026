@@ -1,23 +1,23 @@
-//bUScar el dockerhub si existe un distro de linux especifico
-//o busca una ambiente para el docker
+
+# Imagen base de Ubuntu
 FROM ubuntu:latest
 
-#argumento al sistema operativo para que el GUI no cause problemas
-ARG DEBIAN_FROTEND=noninnteractive
+# Evita preguntas durante la instalación
+ARG DEBIAN_FRONTEND=noninteractive
 
-#se instala python
-RUN apt-get update && apt-get install -y\
+# Instala Python, Git y Curl
+RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     git \
     curl \
-    && rm -rf \var\lib\apt\lists\*
+    && rm -rf /var/lib/apt/lists/*
 
+# Directorio de trabajo
+WORKDIR /workspace
 
-
-WORKDIR / workspace
-
+# Descarga el repositorio
 RUN git clone https://github.com/Ejazly/SDAct2026.git
 
+# Mantiene el contenedor activo
 CMD ["sleep", "infinity"]
-
